@@ -1,15 +1,18 @@
 ---
 name: issue template
-about: 이슈 등록시 사용
+about: 기능 구현 작업 사항을 적습니다.
 title: "[feature]"
 labels: ''
 assignees: ''
 
 ---
 
-## 제목
+## 제목(작업 내용)
+
 추가하려는 기능에 대해 간단한 설명
 
-### (페이지)
+### To Do List
 - [ ]  TODO
 - [ ]  TODO
+
+### 특이사항 (없으면 지우세요)
