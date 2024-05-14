@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>main.jsp</title>
 </head>
 <body>
-
+<a href="<%=request.getContextPath()%>/login.do">로그인</a>
 </body>
 </html>

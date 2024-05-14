@@ -17,7 +17,7 @@ public class JDBCConnect {
 			String pw = "rpass";
 			Class.forName(driver);
 			conn = DriverManager.getConnection(url, user, pw);
-			System.out.println("conn ok!!");
+			System.out.println("DB 연결 성공");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
