@@ -35,29 +35,38 @@
     	}
     }
     
-<%--     function idCheck(){
-    	const userId = document.querySelector('#userId').value;
-    	//console.log(id);
-    	const param = {userId:userId};
+    function idCheck(){
+        console.log("idCheck() 실행");
+        let userId = document.querySelector('[name="userId"]').value;
+        console.log("Params: ", userId);
+        let param = {userId: userId};
+        console.log("Params: ", param);
 
-    	$.ajax({
-    	contextType: "application/json",
-    	type: 'GET';
-    	url:'<%=request.getContextPath()%>/user/idCheck.api',
-    	dataType:'json',
-    	data:param,
-    	
-    	success: function(data) {
-    		if(data[])
-		}
-    	})
-    	} --%>
+        $.ajax({
+            contentType: "application/json",
+            type: 'GET',
+            url: '<%=request.getContextPath()%>/user/idCheck.api',
+            dataType: 'json',
+            data: param,
+            success: function (data) {
+                console.log(data);
+                if (data.rs === '0') {
+                    alert("사용 가능한 ID 입니다.");
+                } else {
+                    alert("이미 존재하는 ID 입니다.");
+                }
+            },
+            error: function (request, status, error) {
+                console.log(request, status, error);
+            }
+        });
+    }
 </script>
 </head>
 <body>
 	<center>
 	<h2>회원가입</h2>
-	<form action="joinProc.do" method="post" onsubmit="return submitConfirm()">
+	<form action="<%=request.getContextPath()%>/joinProc.do" method="post" onsubmit="return passwordCheck()">
 	<table>
           <tr>
             <th>아이디*</th>
