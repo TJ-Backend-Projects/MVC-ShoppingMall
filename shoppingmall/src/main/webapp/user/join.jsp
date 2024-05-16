@@ -35,7 +35,7 @@
     	}
     }
     
-    function idCheck(){
+<%--     function idCheck(){
     	const userId = document.querySelector('#userId').value;
     	//console.log(id);
     	const param = {userId:userId};
@@ -51,59 +51,7 @@
     		if(data[])
 		}
     	})
-    	}
-</script>
-</head>
-<body>
-	<center>
-	<h2>회원가입</h2>
-	<form action="<%=request.getContextPath() %>/joinProc.do" method="post" onsubmit="return passwordCheck()">
-	<table>
-          <tr>
-            <th>아이디*</th>
-            <td>
-              <input type="text" name="userId" placeholder=" 아이디를 입력하세요"/>
-              <input type="button" value="중복확인" onclick="idCheck();">
-            </td>
-          </tr>
-          <tr>
-          <th>비밀번호*</th>
-          <td>
-          <input type="password" name="password" placeholder="비밀번호를 입력하세요"> 
-          </td>
-          </tr>
-          <tr>
-          <th>비밀번호 확인*</th>
-          <td>
-          <input type="password" name="password2" placeholder="비밀번호를 재입력하세요"  onkeyup="passwordConfirm()"> <span id ="confirmMsg"></span></td>
-<script type="text/javascript">
-    /* js 함수 선언(비밀번호 확인후 표시) */
-    function passConfirm() {
-        var password = document.querySelector('[name="password"]').value;              
-        var password2 = document.querySelector('[name="password2"]').value;
-        var confirmMsg = document.querySelector('#confirmMsg');
-        var correctColor = "#00ff00"; //맞았을 때 출력되는 색깔.
-        var wrongColor ="#ff0000";    //틀렸을 때 출력되는 색깔
-        
-        if(password === password2){
-            confirmMsg.style.color = correctColor;
-            confirmMsg.innerHTML ="비밀번호 일치";
-        }else{
-            confirmMsg.style.color = wrongColor;
-            confirmMsg.innerHTML ="비밀번호 불일치";
-        }
-    }
-    /* 비밀번호가 일치하지 않으면 submit 안됨 */
-    function submitConfirm(){
-        var password = document.querySelector('[name="password"]').value;              
-        var password2 = document.querySelector('[name="password2"]').value;
-    	if(password === password2){
-    		return true;
-    	} else {
-    		alert("비밀번호가 일치하지 않습니다.");
-    		return false;
-    	}
-    }
+    	} --%>
 </script>
 </head>
 <body>
@@ -127,7 +75,7 @@
           <tr>
           <th>비밀번호 확인*</th>
           <td>
-          <input type="password" name="password2" placeholder="비밀번호를 재입력하세요"  onkeyup="passConfirm()"> <span id ="confirmMsg"></span></td>
+          <input type="password" name="password2" placeholder="비밀번호를 재입력하세요"  onkeyup="passwordConfirm()"> <span id ="confirmMsg"></span></td>
           </td>
           </tr>
           <tr>
