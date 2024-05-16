@@ -15,6 +15,12 @@
 		<input type="submit" value="로그인">
 		</form>
 		<a href="<%=request.getContextPath() %>/join.do">회원가입</a>
+		<form action="loginProc.do" method="post">
+		<input type="text" name="userId">
+		<input type="password" name="password">
+		<input type="submit" value="로그인">
+		</form>
+		<a href="join.do">회원가입</a>
 	</center>
 </body>
 </html>

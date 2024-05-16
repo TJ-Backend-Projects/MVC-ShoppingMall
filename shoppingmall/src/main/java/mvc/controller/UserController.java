@@ -40,6 +40,7 @@ public class UserController extends HttpServlet {
 		} else if(action.equals("/joinProc.do")) {
 			
 			 request.setCharacterEncoding("utf-8");
+			request.setCharacterEncoding("utf-8");
 			 String userId = request.getParameter("userId");
 			 String password = request.getParameter("password");			 
 			 String userName = request.getParameter("userName");
