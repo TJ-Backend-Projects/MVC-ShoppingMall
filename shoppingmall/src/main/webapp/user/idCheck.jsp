@@ -9,7 +9,7 @@ dto.setUserId(userId);
 %>
 <% // id db
 UserDAO dao = new UserDAO();
-dto = dao.getUser(dto);
+/* dto = dao.getUser(dto); */
 %>
 <%
 int rs = 0;
