@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<a href="<%= request.getContextPath()%>/login.do">로그인</a>
 </body>
 </html>
