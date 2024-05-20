@@ -10,7 +10,7 @@ import mvc.dto.UserDTO;
 
 public class UserDAO {
 	
-	  // user 정보 가져오기
+	// user 정보 가져오기
     public UserDTO getUser(UserDTO dto) {
         Connection conn = null;      // DB 연결 객체
         PreparedStatement pstmt = null;     // SQL 실행 객체
