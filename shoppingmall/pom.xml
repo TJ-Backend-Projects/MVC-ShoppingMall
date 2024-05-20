@@ -13,11 +13,6 @@
 	    <artifactId>mysql-connector-j</artifactId>
 	    <version>8.3.0</version>
 	</dependency>
-	<dependency>
-		<groupId>mvcpjt</groupId>
-		<artifactId>mvcpjt</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</dependency>
 	<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 	<dependency>
 	    <groupId>com.google.code.gson</groupId>
@@ -25,7 +20,6 @@
 	    <version>2.10.1</version>
 	</dependency>
   </dependencies>
-  
   
   <build>
     <plugins>
