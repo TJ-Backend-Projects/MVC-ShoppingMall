@@ -8,8 +8,8 @@ UserDTO dto = new UserDTO();
 dto.setUserId(userId);
 %>
 <% // id db
-UserDAO dao = new UserDAO();
-/* dto = dao.getUser(dto); */
+UserDAO dao = new UserDAO(); 
+dto = dao.getUser(dto);
 %>
 <%
 int rs = 0;
@@ -18,4 +18,3 @@ if(dto != null){
 }
 %>
 {"rs":"<%=rs %>"}
-
