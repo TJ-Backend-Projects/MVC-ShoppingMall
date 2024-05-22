@@ -29,7 +29,7 @@
 <script src="../js/jquery-3.7.1.min.js"></script>
 <script src="../js/jquery-ui.min.js"></script>
 <script src="../js/swiper-bundle.min.js"></script>
-<script src="../js/ui-common.js?v=<?php echo time(); ?>"></script>
+<script src="../js/ui-common.js?v=<%= System.currentTimeMillis() %>"></script>
 </head>
 <body>
 	<div id="skip_navi">
@@ -144,7 +144,7 @@
 											신규 회원을 위한 다양하고<br>특별한 혜택을 만나보세요!
 										</p>
 										<a class="join_btn"
-											href="<%=request.getContextPath()%>/join.do"></a>
+											href="join.jsp"></a>
 									</div>
 									<input class="login_btn" type="submit" value="">
 								</fieldset>

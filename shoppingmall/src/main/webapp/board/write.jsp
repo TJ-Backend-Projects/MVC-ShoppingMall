@@ -28,6 +28,28 @@
 <script src="../js/jquery-3.7.1.min.js"></script>
 <script src="../js/jquery-ui.min.js"></script>
 <script src="../js/ui-common.js?v=<?php echo time(); ?>"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let loggedIn = <%= (session != null && session.getAttribute("userId") != null) ? "true" : "false" %>;
+    
+    // 로그인 및 로그아웃 아이콘을 가져옴
+    let loginIcon = document.querySelector('.login');
+    let logoutIcon = document.querySelector('.logout');
+    let joinBtn = document.querySelector('.join');
+    
+    if (loggedIn) {
+        // 로그인 상태일 때
+        if (loginIcon) loginIcon.style.display = 'none';
+        if (logoutIcon) logoutIcon.style.display = 'block';
+        if (joinBtn) joinBtn.style.display = 'none';
+    } else {
+        // 로그아웃 상태일 때
+        if (loginIcon) loginIcon.style.display = 'block';
+        if (logoutIcon) logoutIcon.style.display = 'none';
+        if (joinBtn) joinBtn.style.display = 'block';
+    }
+});
+</script>
 </head>
 <body>
 	<div id="skip_navi">
@@ -61,12 +83,15 @@
 					</div>
 					<div class="bottom_right">
 						<div class="user_wrap">
-							<a class="login" href="login.jsp"> <span class="blind">login</span>
-							</a> <a class="logout" href="#"> <span class="blind">logout</span>
-							</a> <a class="join" href="join.jsp"> <img
-								src="../images/add.svg"> <span class="blind">join</span>
-							</a> <a class="user_page" href="#"> <span class="blind">my
-									page</span>
+							<a class="login" href="<%=request.getContextPath()%>/logoutProc.do">
+								<span class="blind">login</span>
+							</a> <a class="logout"
+								href="<%=request.getContextPath()%>/logoutProc.do"> <span
+								class="blind">logout</span></a> <a class="join"
+								href="../user/join.jsp"> <img
+								src="images/add.svg"> <span class="blind">join</span>
+							</a> <a class="user_page" href="user/mypage.jsp"> <span
+								class="blind">mypage</span>
 							</a>
 							<button class="menu_btn" type="button">
 								<img src="../images/icon_burger.png" alt="더보기">
@@ -103,34 +128,27 @@
 		</header>
 		<main id="container">
 			<section class="main_write">
-				<h2>Q&A</h2>
-				<%
-				String userID = null;
-				if (session.getAttribute("userID") != null) {
-					userID = (String) session.getAttribute("userID");
-				}
-				%>
-				<div class="row">
-					<form method="post" action="writeAction.jsp">
-						<table class="table table-striped"
-							style="text-align: center; border: 1px solid #dddddd">
-							<tbody>
-								<tr>
-									<td><input class="title" type="text" class="form-control"
-										placeholder="글 제목" name="bbsTitle" maxlength="30"></td>
-								</tr>
-								<tr>
-									<td><textarea class="form-control" placeholder="글 내용"
-											name="bbsContent" maxlength="2048" style="height: 350px"></textarea></td>
-								</tr>
-							</tbody>
-						</table>
-						<input type="submit" class="end_btn"
-							value="글쓰기">
-					</form>
-				</div>
-	</div>
-	</section>
+    <%
+    String userID = null;
+    if (session.getAttribute("userID") != null) {
+        userID = (String) session.getAttribute("userID");
+    }
+    %>
+    <h2>Q&A</h2>
+    <form action="submitQuestion.jsp" method="post" enctype="multipart/form-data">
+        <label for="title">제목:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="content">내용:</label><br>
+        <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
+
+        <label for="file">사진 첨부:</label><br>
+        <input type="file" id="file" name="file"><br><br>
+
+        <input type="submit" value="제출">
+    </form>
+</section>
+
 	</main>
 </body>
 </html>

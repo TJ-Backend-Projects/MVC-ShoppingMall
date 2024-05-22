@@ -1,14 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%
-String userId = (session != null) ? (String) session.getAttribute("userId") : null;
-String password = (session != null) ? (String) session.getAttribute("password") : null;
-String userName = (session != null) ? (String) session.getAttribute("userName") : null;
-String userAddress = (session != null) ? (String) session.getAttribute("userAddress") : null;
-String email = (session != null) ? (String) session.getAttribute("email") : null;
-String tel = (session != null) ? (String) session.getAttribute("tel") : null;
-Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,10 +23,8 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
 	rel="stylesheet">
 <link rel="stylesheet" href="../css/jquery-ui.min.css">
-<link rel="stylesheet"
-	href="../css/common.css?v=<%=System.currentTimeMillis()%>">
-<link rel="stylesheet"
-	href="../css/mypage.css?v=<%=System.currentTimeMillis()%>">
+<link rel="stylesheet" href="../css/common.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="../css/write.css?v=<?php echo time(); ?>">
 <script src="../js/jquery-3.7.1.min.js"></script>
 <script src="../js/jquery-ui.min.js"></script>
 <script src="../js/ui-common.js?v=<?php echo time(); ?>"></script>
@@ -105,12 +94,13 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 					</div>
 					<div class="bottom_right">
 						<div class="user_wrap">
-							<a class="login"
-								href="<%=request.getContextPath()%>/loginProc.do"> <span
-								class="blind">login</span></a> <a class="logout"
+							<a class="login" href="<%=request.getContextPath()%>/logoutProc.do">
+								<span class="blind">login</span>
+							</a> <a class="logout"
 								href="<%=request.getContextPath()%>/logoutProc.do"> <span
-								class="blind">logout</span></a> <a class="join" href="join.jsp">
-								<img src="../images/add.svg"> <span class="blind">join</span>
+								class="blind">logout</span>
+							</a> <a class="join" href="../user/join.jsp"> <img
+								src="../images/add.svg"> <span class="blind">join</span>
 							</a> <a class="user_page" href="#"> <span class="blind">my
 									page</span>
 							</a>
@@ -118,8 +108,8 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 								<img src="../images/icon_burger.png" alt="더보기">
 								<div class="menu_wrap">
 									<ul class="menu">
-										<li><a href="board/qna.jsp">Q&A</a></li>
-										<li><a href="board/review.jsp">Review</a></li>
+										<li><a href="user/qna.jsp">Q&A</a></li>
+										<li><a href="user/review.jsp">Review</a></li>
 										<li><a href="#">ORDER</a></li>
 										<li><a href="#">ABOUT US</a></li>
 									</ul>
@@ -131,11 +121,12 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 										</div>
 									</ul>
 									<ul class="member">
-										<!-- 										<li><a href="login.html">LOGIN</a></li> -->
-										<!-- 										<li><a href="join.html">JOIN</a></li> -->
+										<li><a href="user/login.jsp">LOGIN</a></li>
+										<li><a href="user/join.jsp">JOIN</a></li>
 										<li><a href="#">MY PAGE</a></li>
-										<li><a class="bag" href="#"> <span class="blind">장바구니</span>
-												<img src="../images/icon-bag.png" alt="장바구니">
+										<li><a class="bag" href="board/cart.jsp"> <span
+												class="blind">장바구니</span> <img src="../images/icon-bag.png"
+												alt="장바구니">
 										</a></li>
 										<li><a class="wish" href="#"> <span class="blind">위시리스트</span>
 												<img src="../images/icon_mag.png" alt="위시리스트">
@@ -148,53 +139,31 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 			</div>
 		</header>
 		<main id="container">
-			<section class="main_mypage">
-				<div class="title_area">
-					<h2>My page</h2>
-				</div>
-				<div class="inner">
-					<div class="cart">
-						<a href="../board/cart.jsp">장바구니</a>
-					</div>
-					<div class="user_data">
-						<%
-						if (session == null || userId == null) {
-						%>
-						<p>
-							로그인 정보가 없습니다. <a
-								href="<%=request.getContextPath()%>/user/login.jsp">로그인</a>
-						</p>
-						<%
-						} else {
-						%>
-						<p>
-							접속중인 아이디:
-							<%=userId%></p>
-						<form action="<%=request.getContextPath()%>/updateProc.do" method="post">
-    <input type="hidden" name="userId" value="<%=userId%>">
-    <p>새 비밀번호: <input type="password" name="newPassword"></p>
-    <p>이름: <input type="text" name="userName" value="<%=userName%>"></p>
-    <p>주소: <input type="text" name="userAddress" value="<%=userAddress%>"></p>
-    <p>이메일: <input type="email" name="email" value="<%=email%>"></p>
-    <p>전화번호: <input type="text" name="tel" value="<%=tel%>"></p>
-    <p>나이: <input type="number" name="age" value="<%=age != null ? age : ""%>"></p>
-    <input type="submit" value="정보 수정">
-</form>
+			<section class="main_write">
+    <%
+    String userID = null;
+    if (session.getAttribute("userID") != null) {
+        userID = (String) session.getAttribute("userID");
+    }
+    %>
+    <h2>Review</h2>
+    <form action="submitReview.jsp" method="post" enctype="multipart/form-data">
+        <label for="title">제목:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
 
-						<form action="<%=request.getContextPath()%>/deleteProc.do"
-							method="post" onsubmit="return confirm('정말로 회원 탈퇴하시겠습니까?');">
-							<p>
-								비밀번호를 입력하세요: <input type="password" name="password">
-							</p>
-							<input type="submit" value="회원 탈퇴">
-						</form>
-						<%
-						}
-						%>
-					</div>
+        <label for="content">내용:</label><br>
+        <textarea id="content" name="content" rows="10" cols="50" required></textarea><br><br>
 
-				</div>
-			</section>
-		</main>
+        <label for="rate">평점:</label><br>
+        <input type="number" id="rate" name="rate" min="1" max="5" required><br><br>
+
+        <label for="file">사진 첨부:</label><br>
+        <input type="file" id="file" name="file"><br><br>
+
+        <input type="submit" value="제출">
+    </form>
+</section>
+
+	</main>
 </body>
 </html>

@@ -1,16 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="javax.servlet.http.*, javax.servlet.*"%>
 <%
+/* HttpSession session = request.getSession(false); // 기존 세션이 있으면 가져오고, 없으면 null */
 String userId = (session != null) ? (String) session.getAttribute("userId") : null;
-String password = (session != null) ? (String) session.getAttribute("password") : null;
 String userName = (session != null) ? (String) session.getAttribute("userName") : null;
 String userAddress = (session != null) ? (String) session.getAttribute("userAddress") : null;
 String email = (session != null) ? (String) session.getAttribute("email") : null;
 String tel = (session != null) ? (String) session.getAttribute("tel") : null;
 Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
+
+if (userId == null) {
+	response.sendRedirect("../user/login.jsp");
+	return;
+}
 %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +31,7 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 <meta property="og:site_name" content="marlon shop.">
 <title>말론샵 | marlon shop.</title>
 <link rel="icon" href="../images/common/favicon.ico">
-<link rel="apple-touch-icon" href="../images/touch_icon.png">
+<link rel="apple-touch-icon" href="images/touch_icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -34,11 +40,13 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 <link rel="stylesheet" href="../css/jquery-ui.min.css">
 <link rel="stylesheet"
 	href="../css/common.css?v=<%=System.currentTimeMillis()%>">
+<link rel="stylesheet" href="../css/swiper-bundle.min.css">
 <link rel="stylesheet"
-	href="../css/mypage.css?v=<%=System.currentTimeMillis()%>">
+	href="../css/cart.css?v=<%=System.currentTimeMillis()%>">
 <script src="../js/jquery-3.7.1.min.js"></script>
 <script src="../js/jquery-ui.min.js"></script>
-<script src="../js/ui-common.js?v=<?php echo time(); ?>"></script>
+<script src="../js/swiper-bundle.min.js"></script>
+<script src="../js/ui-common.js?v=<%=System.currentTimeMillis()%>"></script>
 <script>
 	document
 			.addEventListener(
@@ -105,14 +113,15 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 					</div>
 					<div class="bottom_right">
 						<div class="user_wrap">
-							<a class="login"
-								href="<%=request.getContextPath()%>/loginProc.do"> <span
-								class="blind">login</span></a> <a class="logout"
+							<a class="login" href="<%=request.getContextPath()%>/logoutProc.do">
+								<span class="blind">login</span>
+							</a> <a class="logout"
 								href="<%=request.getContextPath()%>/logoutProc.do"> <span
-								class="blind">logout</span></a> <a class="join" href="join.jsp">
-								<img src="../images/add.svg"> <span class="blind">join</span>
-							</a> <a class="user_page" href="#"> <span class="blind">my
-									page</span>
+								class="blind">logout</span></a> <a class="join"
+								href="../user/join.jsp"> <img
+								src="images/add.svg"> <span class="blind">join</span>
+							</a> <a class="user_page" href="user/mypage.jsp"> <span
+								class="blind">mypage</span>
 							</a>
 							<button class="menu_btn" type="button">
 								<img src="../images/icon_burger.png" alt="더보기">
@@ -148,51 +157,48 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 			</div>
 		</header>
 		<main id="container">
-			<section class="main_mypage">
-				<div class="title_area">
-					<h2>My page</h2>
-				</div>
+			<section class="main_cart">
+				<%@ page import="java.util.*, javax.servlet.*, javax.servlet.http.*"%>
+
+				<%
+    HttpSession session = request.getSession();
+    List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
+    if (cart == null) {
+        cart = new ArrayList<>();
+    }
+%>
+
 				<div class="inner">
-					<div class="cart">
-						<a href="../board/cart.jsp">장바구니</a>
+					<div class="title_area">
+						<h2>장바구니</h2>
 					</div>
-					<div class="user_data">
-						<%
-						if (session == null || userId == null) {
-						%>
-						<p>
-							로그인 정보가 없습니다. <a
-								href="<%=request.getContextPath()%>/user/login.jsp">로그인</a>
-						</p>
-						<%
-						} else {
-						%>
-						<p>
-							접속중인 아이디:
-							<%=userId%></p>
-						<form action="<%=request.getContextPath()%>/updateProc.do" method="post">
-    <input type="hidden" name="userId" value="<%=userId%>">
-    <p>새 비밀번호: <input type="password" name="newPassword"></p>
-    <p>이름: <input type="text" name="userName" value="<%=userName%>"></p>
-    <p>주소: <input type="text" name="userAddress" value="<%=userAddress%>"></p>
-    <p>이메일: <input type="email" name="email" value="<%=email%>"></p>
-    <p>전화번호: <input type="text" name="tel" value="<%=tel%>"></p>
-    <p>나이: <input type="number" name="age" value="<%=age != null ? age : ""%>"></p>
-    <input type="submit" value="정보 수정">
-</form>
-
-						<form action="<%=request.getContextPath()%>/deleteProc.do"
-							method="post" onsubmit="return confirm('정말로 회원 탈퇴하시겠습니까?');">
-							<p>
-								비밀번호를 입력하세요: <input type="password" name="password">
-							</p>
-							<input type="submit" value="회원 탈퇴">
-						</form>
-						<%
-						}
-						%>
+					<div class="cart_wrap">
+						<table>
+							<tr>
+								<th>상품번호</th>
+								<th>수량</th>
+								<th>총 가격</th>
+							</tr>
+							<%
+                int totalAmount = 0;
+                for (CartItem item : cart) {
+                    int itemTotal = item.getTotalPrice();
+                    totalAmount += itemTotal;
+            %>
+							<tr>
+								<td><%= item.getProductId() %></td>
+								<td><%= item.getQuantity() %></td>
+								<td><%= itemTotal %>원</td>
+							</tr>
+							<%
+                }
+            %>
+							<tr>
+								<td colspan="2">총합계</td>
+								<td><%= totalAmount %>원</td>
+							</tr>
+						</table>
 					</div>
-
 				</div>
 			</section>
 		</main>

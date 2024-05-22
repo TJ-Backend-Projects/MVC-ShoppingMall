@@ -138,24 +138,35 @@ public class UserController extends HttpServlet {
         	}
         	response.sendRedirect(path);
         } else if(action.equals("/updateProc.do")) {
-        	
-    		HttpSession session = request.getSession();
-    		String id = (String)session.getAttribute("userId");
-    		String password = request.getParameter("password");
-    		String userName = request.getParameter("userName");
-    		String userAddress = request.getParameter("userAddress");
-    		String email = request.getParameter("email");
-    		String tel = request.getParameter("tel");
-    		String age = request.getParameter("age");
-    		
-    		UserDAO dao = new UserDAO();
-    		UserDTO dto = new UserDTO(id, password, userName, userAddress, email, tel, age);
-    		
-			session.setAttribute("userName",userName);
-			System.out.println("업데이트 성공");
-			String path = request.getContextPath() + "/user/mypage.jsp";
-			response.sendRedirect(path);
-    }
-		
+            HttpSession session = request.getSession();
+            String id = (String)session.getAttribute("userId");
+            String newPassword = request.getParameter("newPassword");
+            String userName = request.getParameter("userName");
+            String userAddress = request.getParameter("userAddress");
+            String email = request.getParameter("email");
+            String tel = request.getParameter("tel");
+            String ageString = request.getParameter("age");
+            Integer age = null;
+            if (ageString != null && !ageString.isEmpty()) {
+                age = Integer.parseInt(ageString);
+            }
+            
+            UserDAO dao = new UserDAO();
+            UserDTO dto = new UserDTO(id, newPassword, userName, userAddress, email, tel, age);
+            
+            int result = dao.update(dto); // update 메서드 호출
+            
+            if (result > 0) {
+                // 업데이트 성공
+                session.setAttribute("userName", userName);
+                System.out.println("업데이트 성공");
+            } else {
+                // 업데이트 실패
+                System.out.println("업데이트 실패");
+            }
+            
+            String path = request.getContextPath() + "/user/mypage.jsp";
+            response.sendRedirect(path);
+        }
     }
 }

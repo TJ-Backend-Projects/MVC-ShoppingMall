@@ -29,6 +29,18 @@ public class UserDTO{
 		this.age = age;
 	}
 	
+	public UserDTO(String userId, String password, String userName, String userAddress, String email,
+	        String tel, Integer age) {
+	    super();
+	    this.userId = userId;
+	    this.password = password;
+	    this.userName = userName;
+	    this.userAddress = userAddress;
+	    this.email = email;
+	    this.tel = tel;
+	    this.age = age;
+	}
+	
 	public UserDTO(String id, String password2, String userName2, String userAddress2, String email2, String tel2,
 			String age2) {
 		// TODO Auto-generated constructor stub

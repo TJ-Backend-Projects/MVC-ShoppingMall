@@ -214,128 +214,28 @@
 }
 
 #container {
+	height: 440px;
 	max-width: 1280px;
 	margin: 0 auto;
 }
 
-.main_write h2 {
-	font-size: 28px;
-	font-weight: 600;
-	margin: 30px 0 20px;
+.title_area {
+	margin-top: 20px;
+	padding-top: 20px;
+	border-top: 2px solid #000;
 }
 
-.main_write .title {
-	width:100%
+.title_area h2 {
+	text-align: right;
+	font-size: 26px;
+	font-weight: 700;
 }
-
-.main_write .btn_wrap {
+.main_mypage .inner {
 	display: flex;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
+	    justify-content: space-between;
 }
-
-.btn_wrap .letter_btn .letter {
-	width: 102px;
-	height: 40px;
-	margin: 4px 2px;
-	background: #fff;
-	position: relative;
-	font-size: 12px;
-	border: none;
-}
-
-.btn_wrap .letter_btn .letter::after {
-	position: absolute;
-	width: 0;
-	height: 0;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-top: 4px solid #333333;
-	right: 2px;
-	top: 18px;
-	content: "";
-}
-
-.btn_wrap .letter_btn .font_family {
-	width: 142px;
-	height: 40px;
-	margin: 4px 2px;
-	background: #fff;
-	position: relative;
-	font-size: 12px;
-	border: none;
-}
-
-.btn_wrap .letter_btn .font_family::after {
-	position: absolute;
-	width: 0;
-	height: 0;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-top: 4px solid #333333;
-	right: 2px;
-	top: 18px;
-	content: "";
-}
-
-.btn_wrap .letter_btn .font_size {
-	width: 52px;
-	height: 40px;
-	margin: 4px 2px;
-	background: #fff;
-	position: relative;
-	font-size: 12px;
-	border: 1px solid #fff;;
-}
-
-.btn_wrap .letter_btn .font_size::after {
-	position: absolute;
-	width: 0;
-	height: 0;
-	border-left: 4px solid transparent;
-	border-right: 4px solid transparent;
-	border-top: 4px solid #333333;
-	right: 2px;
-	top: 18px;
-	content: "";
-}
-
-.btn_wrap .font_btn .bold {
-	width: 34px;
-	height: 40px;
-	margin: 4px 2px;
-	background: url(../images/bold.png) no-repeat center #fff;
-	border: none;
-}
-
-.btn_wrap .font_btn .slash {
-	width: 34px;
-	height: 40px;
-	margin: 4px 2px;
-	background: url(../images/slash.png) no-repeat center #fff;
-	border: none;
-}
-
-.btn_wrap .font_btn .more_font {
-	width: 34px;
-	height: 40px;
-	margin: 4px 2px;
-	background: url(../images/more_font.png) no-repeat center #fff;
-	border: none;
-}
-
-.main_write .text {
-	min-height: 440px;
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #ddd;
-}
-
-.main_write .end_btn {
-	width:80px;
-	height:40px;
-	border:1px solid #000;
-	border-radius:5px;
-	position: absolute;
-    right: 120px;
-    top: 700px;
+.main_mypage .inner .cart {
+	width: 70px;
+	height: 30px;
+	border: 1px solid black;
 }

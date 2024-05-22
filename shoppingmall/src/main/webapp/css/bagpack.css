@@ -66,12 +66,92 @@
 .inner .bottom_right {
   display: flex;
 }
-.inner .bottom_right .more_btn {
+.inner .bottom_right .menu_btn {
   width: 24px;
   height: 24px;
   border: none;
   background: none;
 }
+.inner .bottom_right .menu_btn.on .menu_wrap {
+  background: #eee8e8;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, .3);
+  display: block;
+  height: 100%;
+  top: 0;
+  right: -300px;
+  position: fixed;
+  overflow: hidden;
+  transform: translateX(-300px);
+  transition: transform .3s;
+  width: 300px;
+  z-index: 9999;
+  opacity: 1;
+}
+
+.inner .menu_wrap .menu {
+  text-align: start;
+  width: 260px;
+  padding: 20px;
+  margin: 0 20px 0;
+  border-bottom: 1px solid black;
+}
+.inner .menu_wrap .menu>li {
+  padding-bottom: 9px;
+}
+.inner .menu_wrap .menu>li:nth-child(3) {
+  padding-bottom: 30px;
+}
+.inner .menu_wrap .menu>li>a {
+  font-size: 32px;
+  font-weight: 700;
+}
+.inner .menu_wrap .menu>li:first-child {
+  margin-top: 110px;
+}
+.inner .menu_wrap .menu>li:last-child>a {
+  font-size: 16px;
+}
+.inner .bottom_right .menu_btn .menu_wrap {
+  opacity: 0;
+}
+
+.inner .menu_wrap .service {
+  text-align: start;
+  width: 260px;
+  padding: 44px 0 100px;
+  margin: 0 30px;
+}
+
+.inner .menu_wrap .service>li {
+  padding-bottom: 10px;
+}
+
+.inner .menu_wrap .member {
+  display: flex;
+  align-items: center;
+  margin: 0 30px;
+  gap: 15px;
+}
+.inner .menu_wrap .member>li {
+  line-height: 16px;
+}
+.inner .menu_wrap .member>li>a {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.inner .menu_wrap .member .bag {
+  display: block;
+  margin-left: 20px;
+  width: 15px;
+  height: 15px;
+}
+.inner .menu_wrap .member .wish {
+  display: block;
+  width: 15px;
+  height: 15px;
+}
+
 .inner .user_wrap {
   display: flex;
   gap: 16px;
@@ -97,7 +177,16 @@
   display: block;
   width: 24px;
   height: 24px;
-  background: url(../images/local_mall_FILL0_wght400_GRAD0_opsz24.svg) no-repeat;
+  background: url(../images/mypage.png) no-repeat;
+}
+
+.inner .form_wrap form .btn_wrap {
+	display: flex;
+	justify-content: space-around;
+	margin-top: 20px;
+}
+.inner .form_wrap form .btn_wrap button {
+	width:150px;
 }
 
 #container {
@@ -122,7 +211,7 @@
 .inner .tit_wrap {
   display: flex;
   flex-direction: column;
-  width: 35%;
+  width: 50%;
   padding-top: 100px;
   padding-left: 80px;
 }
