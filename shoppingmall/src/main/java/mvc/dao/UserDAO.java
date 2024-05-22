@@ -118,7 +118,34 @@ public class UserDAO {
 		return result;
 		
 	}
-	
+	public int update(UserDTO dto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int rs = 0;
+		
+		try {
+			conn = JDBCConnect.getConnection();
+			
+			String sql = "UPDATE user SET password=?, user_name=?, address=?, email=?, tel=?, age=? WHERE user_id=?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getPassword());
+			pstmt.setString(2, dto.getUserName());
+			pstmt.setString(3, dto.getUserAddress());
+			pstmt.setString(4, dto.getEmail());
+			pstmt.setString(5, dto.getTel());
+			pstmt.setInt(6, dto.getAge());
+			pstmt.setString(7, dto.getUserId());	
+			
+			rs = pstmt.executeUpdate();			
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			JDBCConnect.close(pstmt, conn);
+		}
+		
+		return rs; 
+	}
 	
 	
 }

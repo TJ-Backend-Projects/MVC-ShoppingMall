@@ -137,8 +137,25 @@ public class UserController extends HttpServlet {
         		path = request.getContextPath() + "/user/mypage.jsp";
         	}
         	response.sendRedirect(path);
-        } 
-			
+        } else if(action.equals("/updateProc.do")) {
+        	
+    		HttpSession session = request.getSession();
+    		String id = (String)session.getAttribute("userId");
+    		String password = request.getParameter("password");
+    		String userName = request.getParameter("userName");
+    		String userAddress = request.getParameter("userAddress");
+    		String email = request.getParameter("email");
+    		String tel = request.getParameter("tel");
+    		String age = request.getParameter("age");
+    		
+    		UserDAO dao = new UserDAO();
+    		UserDTO dto = new UserDTO(id, password, userName, userAddress, email, tel, age);
+    		
+			session.setAttribute("userName",userName);
+			System.out.println("업데이트 성공");
+			String path = request.getContextPath() + "/user/mypage.jsp";
+			response.sendRedirect(path);
+    }
 		
     }
 }
