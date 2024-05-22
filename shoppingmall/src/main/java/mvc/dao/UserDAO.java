@@ -63,7 +63,7 @@ public class UserDAO {
 			conn = JDBCConnect.getConnection();
 			
 			// insert문
-			String sql = "insert into user(user_id, password, user_name, address, email, registration_date, tel, age) values(?,?,?,?,?,?,?,?)";
+			String sql = "INSERT INTO user(user_id, password, user_name, address, email, registration_date, tel, age) VALUES(?,?,?,?,?,?,?,?)";
 			pstmt = conn.prepareStatement(sql);
 			
 			// value값 세팅
@@ -93,6 +93,32 @@ public class UserDAO {
 		
 		return rs;
 	}
+	
+	public int delete(UserDTO dto) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 0;
+		
+		try {
+			conn = JDBCConnect.getConnection();
+			
+			String sql = "DELETE FROM user WHERE user_id= ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getUserId());
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JDBCConnect.close(pstmt, conn);
+		}
+		
+		
+		return result;
+		
+	}
+	
 	
 	
 }
