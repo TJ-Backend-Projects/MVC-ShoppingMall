@@ -1,1 +1,175 @@
 2024-05-20 18:29:36,819 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-05-22 12:55:38,428 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-05-22 12:56:02,181 [Worker-16: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: shoppingmall:shoppingmall:0.0.1-SNAPSHOT @ C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\pom.xml.
+2024-05-22 12:56:02,181 [Worker-21: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: shoppingmall:shoppingmall:0.0.1-SNAPSHOT @ C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\pom.xml.
+2024-05-22 12:56:03,807 [Worker-21: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 12:56:03,809 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 12:56:03,898 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Changes detected - recompiling the module!
+2024-05-22 12:56:03,899 [Worker-21: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+2024-05-22 12:56:03,910 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Compiling 5 source files to C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\target\classes
+2024-05-22 12:56:05,288 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - -------------------------------------------------------------
+2024-05-22 12:56:05,288 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - COMPILATION ERROR : 
+2024-05-22 12:56:05,290 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - -------------------------------------------------------------
+2024-05-22 12:56:05,290 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[6,21] package javax.servlet does not exist
+2024-05-22 12:56:05,290 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[7,32] package javax.servlet.annotation does not exist
+2024-05-22 12:56:05,290 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[8,26] package javax.servlet.http does not exist
+2024-05-22 12:56:05,292 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[9,26] package javax.servlet.http does not exist
+2024-05-22 12:56:05,293 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[10,26] package javax.servlet.http does not exist
+2024-05-22 12:56:05,293 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[11,26] package javax.servlet.http does not exist
+2024-05-22 12:56:05,294 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[20,37] cannot find symbol
+  symbol: class HttpServlet
+2024-05-22 12:56:05,294 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[19,2] cannot find symbol
+  symbol: class WebServlet
+2024-05-22 12:56:05,295 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[21,30] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,296 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[21,58] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,297 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[21,95] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,297 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[25,31] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,298 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[25,59] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,299 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[25,96] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,300 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[29,34] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,301 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[29,62] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,302 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[29,99] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,304 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[8,21] package javax.servlet does not exist
+2024-05-22 12:56:05,304 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[9,32] package javax.servlet.annotation does not exist
+2024-05-22 12:56:05,305 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[10,26] package javax.servlet.http does not exist
+2024-05-22 12:56:05,306 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[11,26] package javax.servlet.http does not exist
+2024-05-22 12:56:05,307 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[12,26] package javax.servlet.http does not exist
+2024-05-22 12:56:05,307 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[18,40] cannot find symbol
+  symbol: class HttpServlet
+2024-05-22 12:56:05,308 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[17,2] cannot find symbol
+  symbol: class WebServlet
+2024-05-22 12:56:05,308 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[20,30] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserApiController
+2024-05-22 12:56:05,310 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[20,58] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserApiController
+2024-05-22 12:56:05,310 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[20,95] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserApiController
+2024-05-22 12:56:05,312 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[24,31] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserApiController
+2024-05-22 12:56:05,312 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[24,59] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserApiController
+2024-05-22 12:56:05,313 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[24,96] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserApiController
+2024-05-22 12:56:05,314 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[28,34] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserApiController
+2024-05-22 12:56:05,316 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[28,62] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserApiController
+2024-05-22 12:56:05,317 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[28,99] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserApiController
+2024-05-22 12:56:05,319 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[89,17] cannot find symbol
+  symbol:   class HttpSession
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,320 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[106,13] cannot find symbol
+  symbol:   class HttpSession
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,321 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[112,17] cannot find symbol
+  symbol:   class HttpSession
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,322 [Worker-21: Building] ERROR o.e.m.c.i.embedder.EclipseLogger - /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[142,17] cannot find symbol
+  symbol:   class HttpSession
+  location: class mvc.controller.UserController
+2024-05-22 12:56:05,322 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - 37 errors 
+2024-05-22 12:56:05,322 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - -------------------------------------------------------------
+2024-05-22 12:56:05,329 [Worker-21: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 12:56:05,330 [Worker-21: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 12:56:06,967 [Worker-3: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: shoppingmall:shoppingmall:0.0.1-SNAPSHOT @ C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\pom.xml.
+2024-05-22 13:06:57,881 [Worker-37: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:06:57,882 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 13:06:57,886 [Worker-37: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:06:57,886 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 13:07:19,529 [Worker-39: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:07:19,530 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 13:07:19,532 [Worker-39: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:07:19,533 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 13:07:37,278 [Worker-37: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:07:37,279 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 13:07:37,281 [Worker-37: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:07:37,282 [Worker-37: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 13:10:05,940 [Worker-39: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:10:05,943 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 13:10:05,946 [Worker-39: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:10:05,947 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 13:10:08,511 [Worker-40: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:10:08,511 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 13:10:08,513 [Worker-40: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:10:08,513 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 13:13:53,068 [Worker-43: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:13:53,070 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 13:13:53,072 [Worker-43: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:13:53,073 [Worker-43: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 13:14:03,053 [Worker-41: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:14:03,055 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 13:14:03,057 [Worker-41: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:14:03,057 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 13:15:23,003 [Worker-44: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:15:23,004 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 13:15:23,006 [Worker-44: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:15:23,007 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 13:16:17,404 [Worker-41: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:16:17,405 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 13:16:17,407 [Worker-41: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:16:17,407 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 13:19:04,577 [Worker-39: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:19:04,578 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 13:19:04,580 [Worker-39: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 13:19:04,581 [Worker-39: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 14:53:08,281 [Worker-59: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:53:08,283 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 14:53:08,285 [Worker-59: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:53:08,286 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 14:53:12,613 [Worker-61: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:53:12,613 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 14:53:12,615 [Worker-61: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:53:12,616 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 14:54:44,862 [Worker-63: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:54:44,863 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 14:54:44,864 [Worker-63: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:54:44,864 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 14:54:53,878 [Worker-59: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:54:53,879 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 14:54:53,880 [Worker-59: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:54:53,880 [Worker-59: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 14:55:00,739 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:55:00,740 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 14:55:00,741 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:55:00,742 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 14:55:02,994 [Worker-64: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:55:02,995 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 14:55:02,997 [Worker-64: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:55:02,998 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 14:55:20,344 [Worker-63: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:55:20,345 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 14:55:20,346 [Worker-63: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:55:20,346 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 14:55:26,775 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:55:26,777 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\main\resources
+2024-05-22 14:55:26,780 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-05-22 14:55:26,781 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\이승준\git\MVC-ShoppingMall\shoppingmall\src\test\resources
+2024-05-22 14:59:22,373 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.

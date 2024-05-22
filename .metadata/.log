@@ -21,3 +21,328 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+!SESSION 2024-05-22 12:55:19.668 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=21.0.3
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-05-22 12:55:21.880
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-05-22 12:55:22.121
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-05-22 12:55:33.907
+!MESSAGE Logback config file: C:\Users\이승준\git\MVC-ShoppingMall\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-05-22 12:55:38.644
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\이승준'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 12:56:03.808
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 12:56:03.900
+!MESSAGE File encoding has not been set, using platform encoding UTF-8, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.289
+!MESSAGE COMPILATION ERROR :
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.290
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[6,21] package javax.servlet does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.290
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[7,32] package javax.servlet.annotation does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.292
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[8,26] package javax.servlet.http does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.292
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[9,26] package javax.servlet.http does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.293
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[10,26] package javax.servlet.http does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.294
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[11,26] package javax.servlet.http does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.294
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[20,37] cannot find symbol
+  symbol: class HttpServlet
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.295
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[19,2] cannot find symbol
+  symbol: class WebServlet
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.296
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[21,30] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.297
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[21,58] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.297
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[21,95] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.298
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[25,31] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.299
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[25,59] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.300
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[25,96] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.301
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[29,34] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.302
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[29,62] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.302
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[29,99] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.304
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[8,21] package javax.servlet does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.305
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[9,32] package javax.servlet.annotation does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.306
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[10,26] package javax.servlet.http does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.307
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[11,26] package javax.servlet.http does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.307
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[12,26] package javax.servlet.http does not exist
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.308
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[18,40] cannot find symbol
+  symbol: class HttpServlet
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.308
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[17,2] cannot find symbol
+  symbol: class WebServlet
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.310
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[20,30] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserApiController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.310
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[20,58] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserApiController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.312
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[20,95] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserApiController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.312
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[24,31] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserApiController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.313
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[24,59] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserApiController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.314
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[24,96] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserApiController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.316
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[28,34] cannot find symbol
+  symbol:   class HttpServletRequest
+  location: class mvc.controller.UserApiController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.317
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[28,62] cannot find symbol
+  symbol:   class HttpServletResponse
+  location: class mvc.controller.UserApiController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.318
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserApiController.java:[28,99] cannot find symbol
+  symbol:   class ServletException
+  location: class mvc.controller.UserApiController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.319
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[89,17] cannot find symbol
+  symbol:   class HttpSession
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.321
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[106,13] cannot find symbol
+  symbol:   class HttpSession
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.321
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[112,17] cannot find symbol
+  symbol:   class HttpSession
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 4 0 2024-05-22 12:56:05.322
+!MESSAGE /C:/Users/이승준/git/MVC-ShoppingMall/shoppingmall/src/main/java/mvc/controller/UserController.java:[142,17] cannot find symbol
+  symbol:   class HttpSession
+  location: class mvc.controller.UserController
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 12:56:05.330
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:06:57.882
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:06:57.886
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:07:19.529
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:07:19.532
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:07:37.278
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:07:37.282
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:10:05.942
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:10:05.947
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:10:08.511
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:10:08.513
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:13:53.070
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:13:53.073
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:14:03.055
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:14:03.057
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:15:23.004
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:15:23.007
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:16:17.405
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:16:17.407
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:19:04.578
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 13:19:04.580
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:53:08.283
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:53:08.285
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:53:12.613
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:53:12.616
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:54:44.862
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:54:44.864
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:54:53.878
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:54:53.880
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:55:00.740
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:55:00.741
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:55:02.995
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:55:02.998
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:55:20.345
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:55:20.346
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:55:26.777
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+
+!ENTRY org.eclipse.m2e.logback.appender 2 0 2024-05-22 14:55:26.780
+!MESSAGE Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+!SESSION 2024-05-22 14:58:58.382 -----------------------------------------------
+eclipse.buildId=4.31.0.20240307-1200
+java.version=21.0.3
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=ko_KR
+Framework arguments:  -product org.eclipse.epp.package.jee.product
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.eclipse.epp.package.jee.product
+
+!ENTRY org.eclipse.emf.ecore 2 0 2024-05-22 14:59:00.420
+!MESSAGE Both 'org.eclipse.jst.j2ee.core' and 'org.eclipse.jst.j2ee.core' register a package for 'application.xmi'
+
+!ENTRY ch.qos.logback.classic 1 0 2024-05-22 14:59:00.693
+!MESSAGE Activated before the state location was initialized. Retry after the state location is initialized.
+
+!ENTRY ch.qos.logback.classic 1 0 2024-05-22 14:59:16.248
+!MESSAGE Logback config file: C:\Users\이승준\git\MVC-ShoppingMall\.metadata\.plugins\org.eclipse.m2e.logback\logback.2.6.0.20240217-1525.xml
+
+!ENTRY org.eclipse.egit.ui 2 0 2024-05-22 14:59:22.540
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\이승준'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
