@@ -97,8 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
 								<img src="../images/icon_burger.png" alt="더보기">
 								<div class="menu_wrap">
 									<ul class="menu">
-										<li><a href="user/qna.jsp">Q&A</a></li>
-										<li><a href="#">Review</a></li>
+										<li><a href="board.jsp">Board</a></li>
 										<li><a href="#">ORDER</a></li>
 										<li><a href="#">ABOUT US</a></li>
 									</ul>
@@ -134,8 +133,8 @@ document.addEventListener('DOMContentLoaded', function() {
         userID = (String) session.getAttribute("userID");
     }
     %>
-    <h2>Q&A</h2>
-    <form action="submitQuestion.jsp" method="post" enctype="multipart/form-data">
+    <h2>Board</h2>
+    <form action="submitBoard.jsp" method="post" enctype="multipart/form-data">
         <label for="title">제목:</label><br>
         <input type="text" id="title" name="title" required><br><br>
 

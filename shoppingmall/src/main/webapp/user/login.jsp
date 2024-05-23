@@ -76,8 +76,7 @@
 								<img src="../images/icon_burger.png" alt="더보기">
 								<div class="menu_wrap">
 									<ul class="menu">
-										<li><a href="qna.jsp">Q&A</a></li>
-										<li><a href="#">Review</a></li>
+										<li><a href="board.jsp">Board</a></li>
 										<li><a href="#">ORDER</a></li>
 										<li><a href="#">ABOUT US</a></li>
 									</ul>
