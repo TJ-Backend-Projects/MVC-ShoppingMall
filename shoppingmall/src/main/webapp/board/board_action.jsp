@@ -36,7 +36,7 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 	href="../css/common.css?v=<%=System.currentTimeMillis()%>">
 <link rel="stylesheet" href="../css/swiper-bundle.min.css">
 <link rel="stylesheet"
-	href="../css/review.css?v=<%=System.currentTimeMillis()%>">
+	href="../css/board.css?v=<%=System.currentTimeMillis()%>">
 <script src="../js/jquery-3.7.1.min.js"></script>
 <script src="../js/jquery-ui.min.js"></script>
 <script src="../js/swiper-bundle.min.js"></script>
@@ -74,6 +74,27 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 						}
 					});
 </script>
+<style>
+.content {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.post {
+	border: 1px solid #ddd;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+
+.comments {
+	border-top: 1px solid #ddd;
+	padding-top: 20px;
+}
+
+.comment-form {
+	margin-top: 20px;
+}
+</style>
 </head>
 <body>
 	<div id="skip_navi">
@@ -107,13 +128,14 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 					</div>
 					<div class="bottom_right">
 						<div class="user_wrap">
-							<a class="login" href="<%=request.getContextPath()%>/logoutProc.do">
-								<span class="blind">login</span>
+							<a class="login"
+								href="<%=request.getContextPath()%>/logoutProc.do"> <span
+								class="blind">login</span>
 							</a> <a class="logout"
 								href="<%=request.getContextPath()%>/logoutProc.do"> <span
 								class="blind">logout</span></a> <a class="join"
-								href="../user/join.jsp"> <img
-								src="images/add.svg"> <span class="blind">join</span>
+								href="../user/join.jsp"> <img src="../images/add.svg">
+								<span class="blind">join</span>
 							</a> <a class="user_page" href="user/mypage.jsp"> <span
 								class="blind">mypage</span>
 							</a>
@@ -121,8 +143,7 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 								<img src="../images/icon_burger.png" alt="더보기">
 								<div class="menu_wrap">
 									<ul class="menu">
-										<li><a href="qna.jsp">Q&A</a></li>
-										<li><a href="review.jsp">Review</a></li>
+										<li><a href="board.jsp">Board</a></li>
 										<li><a href="#">ORDER</a></li>
 										<li><a href="#">ABOUT US</a></li>
 									</ul>
@@ -149,65 +170,25 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 			</div>
 		</header>
 		<main id="container">
-			<section class="main_review">
-				<div class="title_area">
-					<h2>Review</h2>
-				</div>
-				<div class="review_wrap">
-					<table class="table">
-						<!--         	필요한부분인지 크게 못느껴 일단 주석처리함. 필요시 주석 해제할것. -->
-						<!-- 	        	<thead> -->
-						<!-- 		        	<tr>  -->
-						<!-- 		        		<th style="width: 70px;">번호</th> -->
-						<!-- 		        		<th>제목</th> -->
-						<!-- 		        		<th style="width: 100px;">작성자</th> -->
-						<!-- 		        		<th style="width: 250px;">작성일</th> -->
-						<!-- 		        	</tr> -->
-						<!-- 	        	</thead> -->
-						<!-- 예시로 만들어둔것 지우고 만들어야함 -->
-						<tbody>
-							<tr>
-								<td class="col1">1</td>
-								<td class="col2">ㅎㅇ</td>
-								<td class="col3">엄준식</td>
-								<td class="col4">2024-05-17</td>
-							</tr>
-							<tr>
-								<td class="col1">2</td>
-								<td class="col2">안녕하세요</td>
-								<td class="col3">이씨가문곰</td>
-								<td class="col4">2024-10-17</td>
-							</tr>
-						</tbody>
-					</table>
-					<!--    여기까지				 -->
-					<a href="reviewWrite.jsp" class="write"> <span>Write</span>
-					</a>
-				</div>
-				<!--         여기부터 글쓴 목록 -->
-				<div class="board_list">
-					<ul class="board">
-						<li><a class="active" href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">6</a></li>
-						<li><a href="#">7</a></li>
-					</ul>
-					<div>
-						<form class="btn_wrap" action="/posts?page=1" method="get">
-							<input type="hidden" name="page" value="1"> <a href="#"
-								class="prev_btn"
-								onclick="this.previousElementSibling.value = parseInt(this.previousElementSibling.value) - 1;">Prev</a>
-							<span class="nav_bar"></span> <a href="#" class="next_btn"
-								onclick="this.previousElementSibling.previousElementSibling.value = parseInt(this.previousElementSibling.previousElementSibling.value) + 1;">Next
-							</a>
-						</form>
+			<section class="board_area">
+				<div class="content">
+					<div class="post">
+						<h2><%=request.getParameter("title")%></h2>
+						<p>
+							<strong>작성자:</strong>
+							<%=request.getParameter("author")%>
+						</p>
+						<p>
+							<strong>작성일:</strong>
+							<%=request.getParameter("date")%>
+						</p>
+						<p><%=request.getParameter("content")%></p>
+					</div>
+					<div class="button_area">
+						<a href="board.jsp" class="button">목록으로</a>
 					</div>
 				</div>
 			</section>
 		</main>
-	</div>
 </body>
 </html>

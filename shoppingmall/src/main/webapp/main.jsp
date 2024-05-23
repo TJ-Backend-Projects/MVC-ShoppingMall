@@ -111,8 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
 								<img src="images/icon_burger.png" alt="더보기">
 								<div class="menu_wrap">
 									<ul class="menu">
-										<li><a href="board/qna.jsp">Q&A</a></li>
-										<li><a href="board/review.jsp">Review</a></li>
+										<li><a href="board/board.jsp">Board</a></li>
 										<li><a href="#">ORDER</a></li>
 										<li><a href="#">ABOUT US</a></li>
 									</ul>

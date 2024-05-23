@@ -231,38 +231,38 @@
 	font-weight: 700;
 }
 
-.review_wrap {
+.qna_wrap {
 	position: relative;
 }
 
-.review_wrap .table {
+.qna_wrap .table {
 	text-align: center;
 	margin-top: 50px;
 }
 
-.review_wrap .table .col1 {
+.qna_wrap .table .col1 {
 	height: 80px;
 	width: 70px;
 }
 
-.review_wrap .table .col3 {
+.qna_wrap .table .col3 {
 	width: 70px;
 }
 
-.review_wrap .table .col4 {
+.qna_wrap .table .col4 {
 	width: 100px;
 }
 
-.review_wrap .table tbody tr {
+.qna_wrap .table tbody tr {
 	border-top: 1px solid #ddd;
 	font-size: 13px;
 }
 
-.review_wrap .table tbody tr:last-child {
+.qna_wrap .table tbody tr:last-child {
 	border-bottom: 1px solid #ddd;
 }
 
-.review_wrap .write {
+.qna_wrap .write {
 	display: block;
 	background: #000;
 	color: #fff;
@@ -274,12 +274,15 @@
 	text-align: center;
 	float: right;
 }
-.review_wrap .write:hover{
+.qna_wrap .write:hover{
 	background:#ddd;
 	color: #000;
 }
+.qna_wrap .col2 {
+	cursor: pointer;
+}
 
-.review_wrap .write span {
+.qna_wrap .write span {
 	font-size: 12px;
 }
 
@@ -320,6 +323,9 @@
   margin: 0 50px;
   background: #000;
   margin-top: 18px;
+}
+.board_list .btn_wrap form {
+	display: flex;
 }
 
 
