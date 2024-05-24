@@ -18,12 +18,12 @@
 	        String password = "rpass";
 	        conn = DriverManager.getConnection(url, user, password);
 	
-	        String sql = "INSERT INTO board (board_id, board_title, comments_content, board_date) VALUES (?, ?, ?, NOW())";
+	        String sql = "INSERT INTO board (user_id, board_title, comments_content, board_date) VALUES (?, ?, ?, NOW())";
 	        pstmt = conn.prepareStatement(sql);
 	        pstmt.setString(1, request.getParameter("id"));
 	        pstmt.setString(2, request.getParameter("title"));
 	        pstmt.setString(3, request.getParameter("content"));
-	        //pstmt.executeUpdate();
+	        pstmt.executeUpdate();
 	
 	        response.sendRedirect("board.jsp"); // 리뷰 작성 후 리뷰 목록 페이지로 리디렉션
 	    } catch (Exception e) {
