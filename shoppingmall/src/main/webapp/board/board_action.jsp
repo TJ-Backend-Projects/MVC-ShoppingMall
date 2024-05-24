@@ -176,7 +176,8 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 						<h2><%=request.getParameter("title")%></h2>
 						<p>
 							<strong>작성자:</strong>
-							<%=request.getParameter("author")%>
+							<%=request.getParameter("userId")%>
+							<!-- 수정된 부분 -->
 						</p>
 						<p>
 							<strong>작성일:</strong>
@@ -184,6 +185,7 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 						</p>
 						<p><%=request.getParameter("content")%></p>
 					</div>
+
 					<div class="button_area">
 						<a href="board.jsp" class="button">목록으로</a>
 					</div>

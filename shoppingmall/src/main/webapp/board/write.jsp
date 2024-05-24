@@ -129,12 +129,13 @@ document.addEventListener('DOMContentLoaded', function() {
 			<section class="main_write">
     <%
     String userID = null;
-    if (session.getAttribute("userID") != null) {
-        userID = (String) session.getAttribute("userID");
+    if (session.getAttribute("userId") != null) {
+        userID = (String) session.getAttribute("userId");
     }
     %>
     <h2>Board</h2>
-    <form action="submitBoard.jsp" method="post" enctype="multipart/form-data">
+    <form action="submitBoard.jsp" method="post">
+    	<input type="hidden" name="id" value="<%=userID%>"> 
         <label for="title">제목:</label><br>
         <input type="text" id="title" name="title" required><br><br>
 

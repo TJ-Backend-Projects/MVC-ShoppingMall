@@ -1,14 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="mvc.dao.BoardDAO" %>
+<%@ page import="mvc.dto.BoardDTO" %>
+<%@ page import="java.util.ArrayList" %>
 <%
-/* HttpSession session = request.getSession(false); // 기존 세션이 있으면 가져오고, 없으면 null */
 String userId = (session != null) ? (String) session.getAttribute("userId") : null;
-String userName = (session != null) ? (String) session.getAttribute("userName") : null;
-String userAddress = (session != null) ? (String) session.getAttribute("userAddress") : null;
-String email = (session != null) ? (String) session.getAttribute("email") : null;
-String tel = (session != null) ? (String) session.getAttribute("tel") : null;
-Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
+//BoardDAO 객체 생성
+BoardDAO boardDAO = new BoardDAO();
+//사용자가 작성한 글 가져오기
+ArrayList<BoardDTO> userPosts = boardDAO.getUserPosts(userId);
 %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -130,7 +132,7 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 								class="blind">logout</span></a> <a class="join"
 								href="../user/join.jsp"> <img src="../images/add.svg">
 								<span class="blind">join</span>
-							</a> <a class="user_page" href="user/mypage.jsp"> <span
+							</a> <a class="user_page" href="../user/mypage.jsp"> <span
 								class="blind">mypage</span>
 							</a>
 							<button class="menu_btn" type="button">
@@ -179,14 +181,16 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
                     </tr>
                 </thead>
                 <tbody>
-                    <!-- 이부분은 추후 백엔드 작업 완료후엔 내용 지울것 -->
-                    <tr>
-                        <td class="col1">1</td>
-                        <td class="col2 clickable" data-url="board_action.jsp">ㅎㅇ</td>
-                        <td class="col3">엄준식</td>
-                        <td class="col4">2024-05-17</td>
-                    </tr>
-                </tbody>
+                    <!-- 사용자가 작성한 글 표시 -->
+    				<% for (BoardDTO post : userPosts) { %>
+   						<tr>
+     					  <td><%= post.getBoard_id() %></td>
+					      <td class="clickable" data-url="board_action.jsp"><%= post.getBoard_title() %></td>
+     					  <td><%= post.getUser_id() %></td>
+     					  <td><%= post.getBoard_date() %></td>
+   						</tr>
+    				<% } %>
+				</tbody>
             </table>
             <a href="write.jsp" class="write"><span>Write</span></a>
         </div>

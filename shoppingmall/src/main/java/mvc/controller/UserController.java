@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
 
-import com.mysql.cj.Session;
 
 import mvc.dao.UserDAO;
 import mvc.dto.UserDTO;
