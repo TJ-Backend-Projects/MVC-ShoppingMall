@@ -1,3 +1,4 @@
+컨트롤러
 package mvc.controller;
 
 import java.io.IOException;
@@ -62,7 +63,7 @@ public class UserController extends HttpServlet {
           System.out.println("회원가입 성공");
           
           //   로그인 페이지로 이동   
-         String path = request.getContextPath() +"../user/login.jsp";
+         String path = request.getContextPath() +"/user/login.jsp";
          response.sendRedirect(path);
          }else if(action.equals("/loginProc.do")) { // 로그인 처리
 
