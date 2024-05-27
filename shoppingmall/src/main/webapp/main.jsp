@@ -96,13 +96,13 @@ document.addEventListener('DOMContentLoaded', function() {
 					</div>
 					<div class="bottom_right">
 						<div class="user_wrap">
-							<a class="login" href="<%=request.getContextPath()%>/loginProc.do">
+							<a class="login" href="<%=request.getContextPath()%>/user/login.jsp">
 								<span class="blind">login</span>
 							</a> <a class="logout"
 								href="<%=request.getContextPath()%>/logoutProc.do"> <span
-								class="blind">logout</span></a> 
+								class="blind">logout</span></a>
 								<a class="join"
-								href="join.jsp"> <img
+								href="user/join.jsp"> <img
 								src="images/add.svg"> <span class="blind">join</span>
 							</a> <a class="user_page" href="user/mypage.jsp"> <span
 								class="blind">mypage</span>

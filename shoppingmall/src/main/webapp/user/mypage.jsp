@@ -106,7 +106,7 @@ Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 					<div class="bottom_right">
 						<div class="user_wrap">
 							<a class="login"
-								href="<%=request.getContextPath()%>/loginProc.do"> <span
+								href="<%=request.getContextPath()%>/user/login.jsp"> <span
 								class="blind">login</span></a> <a class="logout"
 								href="<%=request.getContextPath()%>/logoutProc.do"> <span
 								class="blind">logout</span></a> <a class="join" href="join.jsp">
