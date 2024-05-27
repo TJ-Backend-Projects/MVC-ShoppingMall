@@ -27,7 +27,7 @@ public class UserApiController extends HttpServlet {
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
-		
+		System.out.println("doProcess");
 		String uri = request.getRequestURI();
 		String action = uri.substring(uri.lastIndexOf("/"));
 		
