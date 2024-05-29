@@ -1,4 +1,3 @@
-컨트롤러
 package mvc.controller;
 
 import java.io.IOException;

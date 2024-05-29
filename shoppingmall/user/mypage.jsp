@@ -1,18 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="mvc.dao.BoardDAO" %>
-<%@ page import="mvc.dto.BoardDTO" %>
-<%@ page import="java.util.ArrayList" %>
 <%
-String userId = (String) session.getAttribute("userId");
-//BoardDAO 객체 생성
-BoardDAO boardDAO = new BoardDAO();
-//사용자가 작성한 글 가져오기
-ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
+String userId = (session != null) ? (String) session.getAttribute("userId") : null;
+String password = (session != null) ? (String) session.getAttribute("password") : null;
+String userName = (session != null) ? (String) session.getAttribute("userName") : null;
+String userAddress = (session != null) ? (String) session.getAttribute("userAddress") : null;
+String email = (session != null) ? (String) session.getAttribute("email") : null;
+String tel = (session != null) ? (String) session.getAttribute("tel") : null;
+Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 %>
-
 <!DOCTYPE html>
-<html lang="ko">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,8 +24,8 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="marlon shop.">
 <title>말론샵 | marlon shop.</title>
-<link rel="icon" href="images/common/favicon.ico">
-<link rel="apple-touch-icon" href="images/touch_icon.png">
+<link rel="icon" href="../images/common/favicon.ico">
+<link rel="apple-touch-icon" href="../images/touch_icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -36,13 +34,11 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 <link rel="stylesheet" href="../css/jquery-ui.min.css">
 <link rel="stylesheet"
 	href="../css/common.css?v=<%=System.currentTimeMillis()%>">
-<link rel="stylesheet" href="../css/swiper-bundle.min.css">
 <link rel="stylesheet"
-	href="../css/board.css?v=<%=System.currentTimeMillis()%>">
+	href="../css/mypage.css?v=<%=System.currentTimeMillis()%>">
 <script src="../js/jquery-3.7.1.min.js"></script>
 <script src="../js/jquery-ui.min.js"></script>
-<script src="../js/swiper-bundle.min.js"></script>
-<script src="../js/ui-common.js?v=<%=System.currentTimeMillis()%>"></script>
+<script src="../js/ui-common.js?v=<?php echo time(); ?>"></script>
 <script>
 	document
 			.addEventListener(
@@ -75,21 +71,6 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 								joinBtn.style.display = 'block';
 						}
 					});
-</script>
-<script>
-	// 게시판 클릭시 넘어가는 스크립트
-	document.addEventListener('DOMContentLoaded', function() {
-		const clickableElements = document.querySelectorAll('.clickable');
-
-		clickableElements.forEach(function(element) {
-			element.addEventListener('click', function() {
-				const url = element.getAttribute('data-url');
-				if (url) {
-					window.location.href = url;
-				}
-			});
-		});
-	});
 </script>
 </head>
 <body>
@@ -125,21 +106,19 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 					<div class="bottom_right">
 						<div class="user_wrap">
 							<a class="login"
+								href="<%=request.getContextPath()%>/user/login.jsp"> <span
+								class="blind">login</span></a> <a class="logout"
 								href="<%=request.getContextPath()%>/logoutProc.do"> <span
-								class="blind">login</span>
-							</a> <a class="logout"
-								href="<%=request.getContextPath()%>/logoutProc.do"> <span
-								class="blind">logout</span></a> <a class="join"
-								href="../user/join.jsp"> <img src="../images/add.svg">
-								<span class="blind">join</span>
-							</a> <a class="user_page" href="../user/mypage.jsp"> <span
-								class="blind">mypage</span>
+								class="blind">logout</span></a> <a class="join" href="join.jsp">
+								<img src="../images/add.svg"> <span class="blind">join</span>
+							</a> <a class="user_page" href="#"> <span class="blind">my
+									page</span>
 							</a>
 							<button class="menu_btn" type="button">
 								<img src="../images/icon_burger.png" alt="더보기">
 								<div class="menu_wrap">
 									<ul class="menu">
-										<li><a href="board.jsp">Board</a></li>
+										<li><a href="board/board.jsp">Board</a></li>
 										<li><a href="#">ORDER</a></li>
 										<li><a href="#">ABOUT US</a></li>
 									</ul>
@@ -151,6 +130,8 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 										</div>
 									</ul>
 									<ul class="member">
+										<!-- 										<li><a href="login.html">LOGIN</a></li> -->
+										<!-- 										<li><a href="join.html">JOIN</a></li> -->
 										<li><a href="#">MY PAGE</a></li>
 										<li><a class="bag" href="#"> <span class="blind">장바구니</span>
 												<img src="../images/icon-bag.png" alt="장바구니">
@@ -166,57 +147,53 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 			</div>
 		</header>
 		<main id="container">
-    <section class="main_qna">
-        <div class="title_area">
-            <h2>Board</h2>
-        </div>
-        <div class="qna_wrap">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th style="width: 70px;">번호</th>
-                        <th>제목</th>
-                        <th style="width: 100px;">작성자</th>
-                        <th style="width: 250px;">작성일</th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    <!-- 사용자가 작성한 글 표시 -->
-    				<% for (BoardDTO post : allPost) { %>
-   						<tr>
-     					  <td><%= post.getBoard_id() %></td>
-					      <td class="clickable" data-url="board_action.jsp"><%= post.getBoard_title() %></td>
-     					  <td><%= post.getUser_id() %></td>
-     					  <td><%= post.getBoard_date() %></td>
-     					  
-   						</tr>
-    				<% } %>
-				</tbody>
-            </table>
-            <a href="write.jsp" class="write"><span>Write</span></a>
-        </div>
-        <div class="board_list">
-            <ul class="board">
-                <li><a class="active" href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li><a href="#">7</a></li>
-            </ul>
-            <div class="btn_wrap">
-                <form action="/posts?page=1" method="get">
-                    <input type="hidden" name="page" value="1">
-                    <a href="#" class="prev_btn" onclick="this.previousElementSibling.value = parseInt(this.previousElementSibling.value) - 1;">Prev</a>
-                    <span class="nav_bar"></span>
-                    <a href="#" class="next_btn" onclick="this.previousElementSibling.previousElementSibling.value = parseInt(this.previousElementSibling.previousElementSibling.value) + 1;">Next</a>
-                </form>
-            </div>
-        </div>
-    </section>
-</main>
+			<section class="main_mypage">
+				<div class="title_area">
+					<h2>My page</h2>
+				</div>
+				<div class="inner">
+					<div class="cart">
+						<a href="../board/cart.jsp">장바구니</a>
+					</div>
+					<div class="user_data">
+						<%
+						if (session == null || userId == null) {
+						%>
+						<p>
+							로그인 정보가 없습니다. <a
+								href="<%=request.getContextPath()%>/user/login.jsp">로그인</a>
+						</p>
+						<%
+						} else {
+						%>
+						<p>
+							접속중인 아이디:
+							<%=userId%></p>
+						<form action="<%=request.getContextPath()%>/updateProc.do" method="post">
+    <input type="hidden" name="userId" value="<%=userId%>">
+    <p>새 비밀번호: <input type="password" name="newPassword"></p>
+    <p>이름: <input type="text" name="userName" value="<%=userName%>"></p>
+    <p>주소: <input type="text" name="userAddress" value="<%=userAddress%>"></p>
+    <p>이메일: <input type="email" name="email" value="<%=email%>"></p>
+    <p>전화번호: <input type="text" name="tel" value="<%=tel%>"></p>
+    <p>나이: <input type="number" name="age" value="<%=age != null ? age : ""%>"></p>
+    <input type="submit" value="정보 수정">
+</form>
 
+						<form action="<%=request.getContextPath()%>/deleteProc.do"
+							method="post" onsubmit="return confirm('정말로 회원 탈퇴하시겠습니까?');">
+							<p>
+								비밀번호를 입력하세요: <input type="password" name="password">
+							</p>
+							<input type="submit" value="회원 탈퇴">
+						</form>
+						<%
+						}
+						%>
+					</div>
+
+				</div>
+			</section>
+		</main>
 </body>
 </html>

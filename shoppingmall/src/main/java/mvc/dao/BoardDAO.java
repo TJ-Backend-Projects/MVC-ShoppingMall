@@ -1,155 +1,204 @@
 package mvc.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import mvc.common.JDBCConnect;
 import mvc.dto.BoardDTO;
-
 
 public class BoardDAO {
 
-    private Connection conn;
-    private ResultSet rs;
+	// 게시물 정보 가져오기
+	public BoardDTO getBoard(BoardDTO dto) {
+		Connection conn = null;      // DB 연결 객체
+		PreparedStatement pstmt = null;     // SQL 실행 객체
+		ResultSet rs = null;          // 결과 객체
+		BoardDTO board = null;        // 결과를 담을 DTO 객체
 
-    public BoardDAO() {
-        try {
-            String dbURL = "jdbc:mysql://localhost:3306/kdigital?serverTimezone=UTC";
-            String dbID = "root";
-            String dbPassword = "rpass";
+		try {
+			// 데이터베이스 연결
+			conn = JDBCConnect.getConnection();
 
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(dbURL, dbID, dbPassword);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+			// SQL 쿼리 작성
+			String sql = "SELECT board_id, user_id, product_id, board_date, comments_content, img FROM board WHERE board_id = ?";
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dto.getBoard_id());
+			rs = pstmt.executeQuery(); // 쿼리 실행
 
-    public void saveBoard(BoardDTO board) {
-        try {
-            String query = "INSERT INTO Board (board_id, user_id, product_id, board_title, board_date, comments_content, img) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";
+			// 결과 처리
+			if (rs.next()) {
+				int boardId = rs.getInt("board_id");
+				String userId = rs.getString("user_id");
+				int productId = rs.getInt("product_id");
+				String boardDate = rs.getString("board_date");
+				String commentsContent = rs.getString("comments_content");
+				String img = rs.getString("img");
 
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, board.getBoard_id());
-            pstmt.setString(2, board.getUser_id());
-            pstmt.setInt(3, board.getProduct_id());
-            pstmt.setString(4, board.getBoard_title());
-            pstmt.setString(5, board.getBoard_date());
-            pstmt.setString(6, board.getComments_content());
-            pstmt.setString(7, board.getImg());
+				// 결과를 DTO에 담기
+				board = new BoardDTO();
+				board.setBoard_id(boardId);
+				board.setUser_id(userId);
+				board.setProduct_id(productId);
+				board.setBoard_date(boardDate);
+				board.setComments_content(commentsContent);
+				board.setImg(img);
+			}
+		} catch (Exception e) {
+			e.printStackTrace(); // 예외 처리
+		} finally {
+			// 자원 해제
+			JDBCConnect.close(pstmt, conn);
+		}
 
-            pstmt.executeUpdate();
-            pstmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+		return board;
+	}
 
-    public int getNext() {
-        String SQL = "SELECT board_id FROM BOARD ORDER BY board_id DESC";
-        try (PreparedStatement pstmt = conn.prepareStatement(SQL);
-             ResultSet rs = pstmt.executeQuery()) {
-            if (rs.next()) {
-                return rs.getInt(1) + 1;
-            }
-            return 1;
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return -1;
-    }
 
-    public int write(BoardDTO board) {
-        try {
-            String query = "INSERT INTO Board (board_id, user_id, product_id, board_title, board_date, comments_content, img) "
-                    + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-            PreparedStatement pstmt = conn.prepareStatement(query);
-            pstmt.setInt(1, getNext());
-            pstmt.setString(2, board.getUser_id());
-            pstmt.setInt(3, board.getProduct_id());
-            pstmt.setString(4, board.getBoard_title());
-            pstmt.setString(5, board.getBoard_date());
-            pstmt.setString(6, board.getComments_content());
-            pstmt.setString(7, board.getImg());
-            return pstmt.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return -1;
-    }
+	public int writePost(BoardDTO board) {
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    
+	    try {
+	        // DB 연결
+	        conn = JDBCConnect.getConnection();
+	        
+	        // insert문
+	        String sql = "INSERT INTO board(user_id, product_id, board_title, board_date, comments_content, img) VALUES(?,?,?,?,?,?)";
+	        pstmt = conn.prepareStatement(sql);
+	        
+	        pstmt.setString(1, board.getUser_id());
+	        pstmt.setInt(2, board.getProduct_id());
+	        pstmt.setString(3, board.getBoard_title());
+	        pstmt.setString(4, board.getBoard_date());
+	        pstmt.setString(5, board.getComments_content());
+	        pstmt.setString(6, board.getImg());
+	        
+	        return pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+			JDBCConnect.close(pstmt, conn);
+	    }
+	    return -1;
+	}
 
-    public ArrayList<BoardDTO> getList(int pageNumber) {
-        String SQL = "SELECT * FROM Board WHERE board_id < ? AND board_Available = 1 ORDER BY board_id LIMIT 10";
-        ArrayList<BoardDTO> list = new ArrayList<>();
-        try (PreparedStatement pstmt = conn.prepareStatement(SQL)) {
-            pstmt.setInt(1, getNext() - ((pageNumber - 1) * 10));
-            try (ResultSet rs = pstmt.executeQuery()) {
-                while (rs.next()) {
-                    BoardDTO board = new BoardDTO();
-                    board.setBoard_id(rs.getInt("board_id"));
-                    board.setUser_id(rs.getString("user_id"));
-                    board.setProduct_id(rs.getInt("product_id"));
-                    board.setBoard_title(rs.getString("board_title"));
-                    board.setBoard_date(rs.getString("board_date"));
-                    board.setComments_content(rs.getString("comments_content"));
-                    board.setImg(rs.getString("img"));
-                    list.add(board);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
 
-    public BoardDTO getBoardDTO(int board_id) {
-        String SQL = "SELECT * FROM Board WHERE board_id = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(SQL)) {
-            pstmt.setInt(1, board_id);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                if (rs.next()) {
-                    BoardDTO board = new BoardDTO();
-                    board.setBoard_id(rs.getInt("board_id"));
-                    board.setUser_id(rs.getString("user_id"));
-                    board.setProduct_id(rs.getInt("product_id"));
-                    board.setBoard_title(rs.getString("board_title"));
-                    board.setBoard_date(rs.getString("board_date"));
-                    board.setComments_content(rs.getString("comments_content"));
-                    board.setImg(rs.getString("img"));
-                    return board;
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+	public BoardDTO getBoardDTO(int board_id) {
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    try {
+	        conn = JDBCConnect.getConnection(); // getConnection 메서드를 통해 Connection 객체 가져오기
+	        String SQL = "SELECT * FROM Board WHERE board_id = ?";
+	        pstmt = conn.prepareStatement(SQL);
+	        pstmt.setInt(1, board_id);
+	        try (ResultSet rs = pstmt.executeQuery()) {
+	            if (rs.next()) {
+	                BoardDTO board = new BoardDTO();
+	                board.setBoard_id(rs.getInt("board_id"));
+	                board.setUser_id(rs.getString("user_id"));
+	                board.setProduct_id(rs.getInt("product_id"));
+	                board.setBoard_title(rs.getString("board_title"));
+	                board.setBoard_date(rs.getString("board_date"));
+	                board.setComments_content(rs.getString("comments_content"));
+	                board.setImg(rs.getString("img"));
+	                return board;
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        JDBCConnect.close(pstmt, conn);
+	    }
+	    return null;
+	}
 
-    public ArrayList<BoardDTO> getUserPosts(String userId) {
-        ArrayList<BoardDTO> userPosts = new ArrayList<>();
-        String query = "SELECT * FROM Board WHERE user_id = ?";
-        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
-            pstmt.setString(1, userId);
-            try (ResultSet rs = pstmt.executeQuery()) {
-                while (rs.next()) {
-                    BoardDTO post = new BoardDTO();
-                    post.setBoard_id(rs.getInt("board_id"));
-                    post.setUser_id(rs.getString("user_id"));
-                    post.setProduct_id(rs.getInt("product_id"));
-                    post.setBoard_title(rs.getString("board_title"));
-                    post.setBoard_date(rs.getString("board_date"));
-                    post.setComments_content(rs.getString("comments_content"));
-                    post.setImg(rs.getString("img"));
-                    userPosts.add(post);
-                }
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return userPosts;
-    }
+
+	public ArrayList<BoardDTO> getAllPost() {
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+	    ArrayList<BoardDTO> allPost = new ArrayList<>();
+
+	    try {
+	        conn = JDBCConnect.getConnection(); // 데이터베이스 연결 설정
+	        String query = "SELECT * FROM Board";
+	        pstmt = conn.prepareStatement(query);
+	        try (ResultSet rs = pstmt.executeQuery()) {
+	            while (rs.next()) {
+	                BoardDTO post = new BoardDTO();
+	                post.setBoard_id(rs.getInt("board_id"));
+	                post.setUser_id(rs.getString("user_id"));
+	                post.setProduct_id(rs.getInt("product_id"));
+	                post.setBoard_title(rs.getString("board_title"));
+	                post.setBoard_date(rs.getString("board_date"));
+	                post.setComments_content(rs.getString("comments_content"));
+	                post.setImg(rs.getString("img"));
+	                allPost.add(post);
+	            }
+	        }
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+	        JDBCConnect.close(pstmt, conn);
+	    }
+
+	    return allPost;
+	}
+
+
+
+
+	// 리소스 닫기 메서드
+	private void close(Connection conn, PreparedStatement pstmt, ResultSet rs) {
+		try {
+			if (rs != null) {
+				rs.close();
+			}
+			if (pstmt != null) {
+				pstmt.close();
+			}
+			// 커넥션 객체는 닫으면 안됨
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	// 게시글 삭제 메서드
+	public void deletePost(int boardId) {
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+
+	    try {
+	        conn = JDBCConnect.getConnection();
+	        String sql = "DELETE FROM Board WHERE board_id = ?";
+	        pstmt = conn.prepareStatement(sql);
+	        pstmt.setInt(1, boardId);
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+			JDBCConnect.close(pstmt, conn);
+	    }
+	}
+	// 게시글 수정 메서드
+	public void updatePost(BoardDTO board) {
+	    Connection conn = null;
+	    PreparedStatement pstmt = null;
+
+	    try {
+	    	conn = JDBCConnect.getConnection(); // getConnection 메서드를 통해 Connection 객체 가져오기
+	        String sql = "UPDATE Board SET board_title = ?, comments_content = ? WHERE board_id = ?";
+	        pstmt = conn.prepareStatement(sql);
+	        pstmt.setString(1, board.getBoard_title());
+	        pstmt.setString(2, board.getComments_content());
+	        pstmt.setInt(3, board.getBoard_id());
+	        pstmt.executeUpdate();
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    } finally {
+			JDBCConnect.close(pstmt, conn);
+	    }
+	}
 }
