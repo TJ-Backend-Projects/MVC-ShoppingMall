@@ -1,16 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="mvc.dao.BoardDAO" %>
-<%@ page import="mvc.dto.BoardDTO" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="javax.servlet.http.*, javax.servlet.*"%>
 <%
-String userId = (String) session.getAttribute("userId");
-//BoardDAO 객체 생성
-BoardDAO boardDAO = new BoardDAO();
-//사용자가 작성한 글 가져오기
-ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
-%>
+/* HttpSession session = request.getSession(false); // 기존 세션이 있으면 가져오고, 없으면 null */
+String userId = (session != null) ? (String) session.getAttribute("userId") : null;
+String userName = (session != null) ? (String) session.getAttribute("userName") : null;
+String userAddress = (session != null) ? (String) session.getAttribute("userAddress") : null;
+String email = (session != null) ? (String) session.getAttribute("email") : null;
+String tel = (session != null) ? (String) session.getAttribute("tel") : null;
+Integer age = (session != null) ? (Integer) session.getAttribute("age") : null;
 
+if (userId == null) {
+	response.sendRedirect("../user/login.jsp");
+	return;
+}
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -26,7 +30,7 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="marlon shop.">
 <title>말론샵 | marlon shop.</title>
-<link rel="icon" href="images/common/favicon.ico">
+<link rel="icon" href="../images/common/favicon.ico">
 <link rel="apple-touch-icon" href="images/touch_icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +42,7 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 	href="../css/common.css?v=<%=System.currentTimeMillis()%>">
 <link rel="stylesheet" href="../css/swiper-bundle.min.css">
 <link rel="stylesheet"
-	href="../css/board.css?v=<%=System.currentTimeMillis()%>">
+	href="../css/cart.css?v=<%=System.currentTimeMillis()%>">
 <script src="../js/jquery-3.7.1.min.js"></script>
 <script src="../js/jquery-ui.min.js"></script>
 <script src="../js/swiper-bundle.min.js"></script>
@@ -76,21 +80,6 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 						}
 					});
 </script>
-<script>
-	// 게시판 클릭시 넘어가는 스크립트
-	document.addEventListener('DOMContentLoaded', function() {
-		const clickableElements = document.querySelectorAll('.clickable');
-
-		clickableElements.forEach(function(element) {
-			element.addEventListener('click', function() {
-				const url = element.getAttribute('data-url');
-				if (url) {
-					window.location.href = url;
-				}
-			});
-		});
-	});
-</script>
 </head>
 <body>
 	<div id="skip_navi">
@@ -124,22 +113,22 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 					</div>
 					<div class="bottom_right">
 						<div class="user_wrap">
-							<a class="login"
-								href="<%=request.getContextPath()%>/logoutProc.do"> <span
-								class="blind">login</span>
+							<a class="login" href="<%=request.getContextPath()%>/logoutProc.do">
+								<span class="blind">login</span>
 							</a> <a class="logout"
 								href="<%=request.getContextPath()%>/logoutProc.do"> <span
 								class="blind">logout</span></a> <a class="join"
-								href="../user/join.jsp"> <img src="../images/add.svg">
-								<span class="blind">join</span>
-							</a> <a class="user_page" href="../user/mypage.jsp"> <span
+								href="../user/join.jsp"> <img
+								src="images/add.svg"> <span class="blind">join</span>
+							</a> <a class="user_page" href="user/mypage.jsp"> <span
 								class="blind">mypage</span>
 							</a>
 							<button class="menu_btn" type="button">
 								<img src="../images/icon_burger.png" alt="더보기">
 								<div class="menu_wrap">
 									<ul class="menu">
-										<li><a href="board.jsp">Board</a></li>
+										<li><a href="board/qna.jsp">Q&A</a></li>
+										<li><a href="board/review.jsp">Review</a></li>
 										<li><a href="#">ORDER</a></li>
 										<li><a href="#">ABOUT US</a></li>
 									</ul>
@@ -151,6 +140,8 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 										</div>
 									</ul>
 									<ul class="member">
+										<!-- 										<li><a href="login.html">LOGIN</a></li> -->
+										<!-- 										<li><a href="join.html">JOIN</a></li> -->
 										<li><a href="#">MY PAGE</a></li>
 										<li><a class="bag" href="#"> <span class="blind">장바구니</span>
 												<img src="../images/icon-bag.png" alt="장바구니">
@@ -166,57 +157,50 @@ ArrayList<BoardDTO> allPost = boardDAO.getAllPost();
 			</div>
 		</header>
 		<main id="container">
-    <section class="main_qna">
-        <div class="title_area">
-            <h2>Board</h2>
-        </div>
-        <div class="qna_wrap">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th style="width: 70px;">번호</th>
-                        <th>제목</th>
-                        <th style="width: 100px;">작성자</th>
-                        <th style="width: 250px;">작성일</th>
-                    </tr>
-                </thead>
-                
-                <tbody>
-                    <!-- 사용자가 작성한 글 표시 -->
-    				<% for (BoardDTO post : allPost) { %>
-   						<tr>
-     					  <td><%= post.getBoard_id() %></td>
-					      <td class="clickable" data-url="board_action.jsp"><%= post.getBoard_title() %></td>
-     					  <td><%= post.getUser_id() %></td>
-     					  <td><%= post.getBoard_date() %></td>
-     					  
-   						</tr>
-    				<% } %>
-				</tbody>
-            </table>
-            <a href="write.jsp" class="write"><span>Write</span></a>
-        </div>
-        <div class="board_list">
-            <ul class="board">
-                <li><a class="active" href="#">1</a></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">6</a></li>
-                <li><a href="#">7</a></li>
-            </ul>
-            <div class="btn_wrap">
-                <form action="/posts?page=1" method="get">
-                    <input type="hidden" name="page" value="1">
-                    <a href="#" class="prev_btn" onclick="this.previousElementSibling.value = parseInt(this.previousElementSibling.value) - 1;">Prev</a>
-                    <span class="nav_bar"></span>
-                    <a href="#" class="next_btn" onclick="this.previousElementSibling.previousElementSibling.value = parseInt(this.previousElementSibling.previousElementSibling.value) + 1;">Next</a>
-                </form>
-            </div>
-        </div>
-    </section>
-</main>
+			<section class="main_cart">
+				<%@ page import="java.util.*, javax.servlet.*, javax.servlet.http.*"%>
 
+				<%
+    HttpSession session = request.getSession();
+    List<CartItem> cart = (List<CartItem>) session.getAttribute("cart");
+    if (cart == null) {
+        cart = new ArrayList<>();
+    }
+%>
+
+				<div class="inner">
+					<div class="title_area">
+						<h2>장바구니</h2>
+					</div>
+					<div class="cart_wrap">
+						<table>
+							<tr>
+								<th>상품번호</th>
+								<th>수량</th>
+								<th>총 가격</th>
+							</tr>
+							<%
+                int totalAmount = 0;
+                for (CartItem item : cart) {
+                    int itemTotal = item.getTotalPrice();
+                    totalAmount += itemTotal;
+            %>
+							<tr>
+								<td><%= item.getProductId() %></td>
+								<td><%= item.getQuantity() %></td>
+								<td><%= itemTotal %>원</td>
+							</tr>
+							<%
+                }
+            %>
+							<tr>
+								<td colspan="2">총합계</td>
+								<td><%= totalAmount %>원</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</section>
+		</main>
 </body>
 </html>
